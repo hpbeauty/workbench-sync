@@ -1,0 +1,10 @@
+# 本地运行时数据（部署后由服务端自动生成，不要提交）
+data.json
+
+# 依赖（Render 会自动 npm install）
+node_modules/
+
+# 非 Render 部署相关文件（Cloudflare 版 / 测试脚本），本仓库仅供 Render 部署
+worker.js
+wrangler.toml
+test.js

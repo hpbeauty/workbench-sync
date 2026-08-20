@@ -1,0 +1,15 @@
+{
+  "name": "ecommerce-workbench-sync-server",
+  "version": "1.0.0",
+  "description": "电商运营主管工作台 · 云同步后端（零依赖 Node.js）",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "PORT=3999 node server.js"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "keywords": ["sync", "cloud", "workbench", "sse"],
+  "license": "MIT"
+}

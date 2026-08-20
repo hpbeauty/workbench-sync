@@ -1,0 +1,24 @@
+# Render 部署配置（基础设施即代码）
+# 用法：
+#   1. 把这整个目录（server.js / package.json / render.yaml）推送到一个 GitHub 仓库
+#   2. 登录 render.com → New → Web Service → 连接该仓库
+#   3. Render 会自动读取本文件并完成配置，点 Create 即可
+#
+# 说明：
+#   - runtime: node   Render 会按 package.json 的 engines 选择 Node 版本
+#   - PORT 不要手动设置，Render 会自动注入环境变量并传给 server.js
+#   - 免费版(plan: free)在闲置 15 分钟后会休眠，首次访问需约 50 秒唤醒
+#   - 免费版文件系统是临时盘，data.json 可能在重启/休眠唤醒后重置（见下方备注）
+
+services:
+  - type: web
+    name: workbench-sync
+    runtime: node
+    plan: free
+    region: oregon          # 可选：oregon / ohio / frankfurt / singapore / virginia / iowa
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: WORKBENCH_URL  # 分享链接的 base（部署后可在 Render 控制台改成你的前端地址）
+        value: https://1464fccadc4548d6b75a6cf813b1d76c.sh1.agentos-app.net
